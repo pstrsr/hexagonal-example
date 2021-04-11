@@ -1,10 +1,15 @@
 package de.strasser.peter.hexagonal.persistence.config;
 
-import de.strasser.peter.hexagonal.persistence.repository.CustomerRepository;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackageClasses = CustomerRepository.class)
 public class MongoConfig {
+
+    @Bean
+    public MongoClient mongoClient() {
+        return MongoClients.create("mongodb://admin:changeme@localhost:27017");
+    }
 }

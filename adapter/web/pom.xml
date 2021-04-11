@@ -10,9 +10,9 @@
     </parent>
 
     <groupId>de.strasser.peter.hexagonal</groupId>
-    <artifactId>webadapter</artifactId>
+    <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>webadapter</name>
+    <name>web</name>
     <description>Web adapter</description>
     <properties>
         <java.version>14</java.version>
