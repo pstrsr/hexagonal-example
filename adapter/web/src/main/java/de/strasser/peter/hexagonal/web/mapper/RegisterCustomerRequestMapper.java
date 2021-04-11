@@ -1,7 +1,7 @@
-package de.strasser.peter.hexagonal.webadapter.mapper;
+package de.strasser.peter.hexagonal.web.mapper;
 
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
-import de.strasser.peter.hexagonal.webadapter.model.RegisterCustomerRequest;
+import de.strasser.peter.hexagonal.web.model.RegisterCustomerRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

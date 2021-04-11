@@ -4,6 +4,6 @@ import java.text.MessageFormat;
 
 public class UserIsTooYoungExc extends BusinessException {
     public UserIsTooYoungExc(int age) {
-        super(MessageFormat.format("Customer is too young. Expected: > 18 yrs, Actual {0}", age));
+        super(MessageFormat.format("Customer is too young. Expected: > 18 yrs, Actual: {0}", age));
     }
 }

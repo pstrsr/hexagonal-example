@@ -1,4 +1,4 @@
-package de.strasser.peter.hexagonal.webadapter.errors;
+package de.strasser.peter.hexagonal.web.errors;
 
 import de.strasser.peter.hexagonal.application.customer.exception.BusinessException;
 import lombok.Value;
@@ -38,7 +38,7 @@ public class ErrorHandling {
                     code.value(),
                     e.getClass().getName(),
                     e.getMessage(),
-                    req.getContextPath());
+                    req.getRequestURI());
             return ResponseEntity.status(code).body(errResponse);
         }
     }

@@ -1,4 +1,4 @@
-package de.strasser.peter.hexagonal.webadapter.config;
+package de.strasser.peter.hexagonal.web.config;
 
 import org.springframework.context.annotation.Configuration;
 

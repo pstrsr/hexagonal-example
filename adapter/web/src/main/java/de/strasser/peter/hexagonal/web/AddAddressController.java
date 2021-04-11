@@ -1,9 +1,9 @@
-package de.strasser.peter.hexagonal.webadapter;
+package de.strasser.peter.hexagonal.web;
 
 import de.strasser.peter.hexagonal.application.customer.port.in.AddAddressUseCase;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
-import de.strasser.peter.hexagonal.webadapter.mapper.AddAddressRequestMapper;
-import de.strasser.peter.hexagonal.webadapter.model.AddAddressRequest;
+import de.strasser.peter.hexagonal.web.mapper.AddAddressRequestMapper;
+import de.strasser.peter.hexagonal.web.model.AddAddressRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package de.strasser.peter.hexagonal.webadapter.model;
+package de.strasser.peter.hexagonal.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
