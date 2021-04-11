@@ -21,7 +21,7 @@ public @interface SecurePassword {
             "# a digit must occur at least once\n" +
                     "# a lower case letter must occur at least once\n" +
                     "# an upper case letter must occur at least once\n" +
-                    "# a special character must occur at least once\n" +
+                    "# a special character must occur at least once ( one of !@#$%^&*(),.?\":{}|<>) \n" +
                     "# no whitespace allowed in the entire string\n" +
                     "# anything, at least eight places though";
 
@@ -33,7 +33,7 @@ public @interface SecurePassword {
 
         @Override
         public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-            return s.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+            return s != null && s.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>])(?=\\S+$).{8,}$");
         }
     }
 }

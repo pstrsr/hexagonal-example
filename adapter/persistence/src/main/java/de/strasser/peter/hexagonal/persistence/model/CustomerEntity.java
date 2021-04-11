@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 @Data
@@ -12,25 +13,25 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class CustomerEntity {
     @Id
-    private Integer id;
+    private BigInteger id;
     private String name;
     private String hashedPassword;
     private LocalDate birthday;
     private boolean active;
 
     private String street;
-    private int houseNumber;
-    private int zipCode;
+    private Integer houseNumber;
+    private Integer zipCode;
     private String country;
 
     private String shippingStreet;
-    private int shippingHouseNumber;
-    private int shippingZipCode;
+    private Integer shippingHouseNumber;
+    private Integer shippingZipCode;
     private String shippingCountry;
 
     private String billingStreet;
-    private int billingHouseNumber;
-    private int billingZipCode;
+    private Integer billingHouseNumber;
+    private Integer billingZipCode;
     private String billingCountry;
 
 }

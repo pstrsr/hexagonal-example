@@ -1,13 +1,13 @@
 package de.strasser.peter.hexagonal.application.customer.port.in.commands;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
-@Value
+@Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class AddAddressCommand {

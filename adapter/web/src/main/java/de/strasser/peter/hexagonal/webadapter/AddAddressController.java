@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class AddAddressController {
 
 
     @PostMapping("/v1/address")
-    public void addAddress(@RequestParam Integer customerId, @RequestBody AddAddressRequest addAddressRequest) {
+    public void addAddress(@RequestParam BigInteger customerId, @RequestBody AddAddressRequest addAddressRequest) {
         final List<AddAddressCommand> addAddressCmds = List.of(addAddressMapper.toCmd(addAddressRequest));
         addAddressUseCase.addAddresses(customerId, addAddressCmds);
     }

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,7 @@ class AddressService implements AddAddressUseCase {
     private final AddAddressMapper addAddressMapper;
 
     @Override
-    public void addAddresses(@Min(0) Integer customerId, @Valid @NotEmpty List<AddAddressCommand> addAddressCmds) {
+    public void addAddresses(@Min(0) BigInteger customerId, @Valid @NotEmpty List<AddAddressCommand> addAddressCmds) {
         final Customer customer = loadCustomerAdapter.findById(customerId);
 
         final Map<Address.AddressType, Address> addresses = new HashMap<>();

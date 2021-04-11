@@ -13,7 +13,7 @@
     <artifactId>application</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>application</name>
-    <description>Business logik for demo project</description>
+    <description>Business logic for demo project</description>
     <properties>
         <java.version>14</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>

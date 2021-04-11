@@ -4,6 +4,7 @@ import de.strasser.peter.hexagonal.application.customer.exception.DefaultAdressR
 import de.strasser.peter.hexagonal.application.customer.exception.UserIsTooYoungExc;
 import lombok.Getter;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.Map;
 
 @Getter
 public class Customer {
-    private final Integer id;
+    private final BigInteger id;
     private String name;
     private String hashedPassword;
     private LocalDate birthday;
@@ -19,7 +20,7 @@ public class Customer {
     private Map<Address.AddressType, Address> addresses;
     private boolean active;
 
-    private Customer(Integer id, String name, String hashedPassword, LocalDate birthDate, Map<Address.AddressType, Address> addresses, boolean active) {
+    private Customer(BigInteger id, String name, String hashedPassword, LocalDate birthDate, Map<Address.AddressType, Address> addresses, boolean active) {
         this.id = id;
         this.active = active;
         this.age = Period.between(birthDate, LocalDate.now()).getYears();
@@ -46,7 +47,7 @@ public class Customer {
     }
 
     public static Customer createCustomer(
-            Integer id,
+            BigInteger id,
             String name,
             String hashedPassword,
             LocalDate birthDate,

@@ -1,10 +1,10 @@
 package de.strasser.peter.hexagonal.webadapter.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
-@Value
+@Data
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class AddAddressRequest {

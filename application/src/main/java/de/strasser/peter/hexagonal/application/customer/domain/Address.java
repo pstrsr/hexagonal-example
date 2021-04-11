@@ -6,8 +6,8 @@ import lombok.Value;
 @Value
 public class Address {
     String street;
-    int houseNumber;
-    int zipCode;
+    Integer houseNumber;
+    Integer zipCode;
     String country;
 
 
