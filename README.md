@@ -47,6 +47,5 @@ visible, which is a major selling point to structure your application in this wa
 
 ### Application architecture
 
-![img_2.png](documentation/dependency_diagram.png)
-
+![img_3.jpg](documentation/dependency_diagram.jpg)
 
