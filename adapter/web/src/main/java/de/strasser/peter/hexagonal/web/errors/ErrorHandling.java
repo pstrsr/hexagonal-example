@@ -36,7 +36,7 @@ public class ErrorHandling {
             final ErrorResponse errResponse = new ErrorResponse(
                     LocalDateTime.now().toString(),
                     code.value(),
-                    e.getClass().getName(),
+                    e.getClass().getSimpleName(),
                     e.getMessage(),
                     req.getRequestURI());
             return ResponseEntity.status(code).body(errResponse);

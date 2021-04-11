@@ -1,4 +1,4 @@
-package de.strasser.peter.hexagonal.web.model;
+package de.strasser.peter.hexagonal.web.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

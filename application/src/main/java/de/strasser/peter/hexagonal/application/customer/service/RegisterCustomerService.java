@@ -20,13 +20,13 @@ class RegisterCustomerService implements RegisterCustomerUseCase {
 
     @Override
     public void register(@Valid RegisterCustomerCommand registerCmd) {
-        var encryptedPw = this.secureHashingAlgorithm(registerCmd.getClearPassword());
+        var encryptedPw = this.superSecureHashingAlgorithm(registerCmd.getClearPassword());
         var newCustomer = Customer.newCustomer(registerCmd.getName(), encryptedPw, registerCmd.getBirthDay());
 
         saveUser.upsert(newCustomer);
     }
 
-    private String secureHashingAlgorithm(String s) {
+    private String superSecureHashingAlgorithm(String s) {
         return new StringBuilder(s).reverse().toString();
     }
 }

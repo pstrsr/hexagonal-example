@@ -1,6 +1,7 @@
 package de.strasser.peter.hexagonal.persistence;
 
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
+import de.strasser.peter.hexagonal.application.customer.port.in.QueryAllCustomersCRUD;
 import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerAdapter;
 import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
 import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapper;
@@ -13,12 +14,13 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class CustomerDao implements SaveCustomerAdapter, LoadCustomerAdapter {
+public class CustomerDao implements SaveCustomerAdapter, LoadCustomerAdapter, QueryAllCustomersCRUD {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
 
@@ -37,5 +39,10 @@ public class CustomerDao implements SaveCustomerAdapter, LoadCustomerAdapter {
                 LocalDate.of(1980, 1, 1),
                 new HashMap<>(),
                 true);
+    }
+
+    @Override
+    public List<Customer> getAll() {
+        return customerMapper.toDomain(customerRepository.findAll());
     }
 }

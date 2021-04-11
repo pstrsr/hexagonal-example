@@ -2,6 +2,7 @@ package de.strasser.peter.hexagonal.persistence;
 
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
 import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapper;
+import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapperImpl;
 import de.strasser.peter.hexagonal.persistence.repository.CustomerRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataMongoTest
-@Import({CustomerDao.class, CustomerMapper.class})
+@Import({CustomerDao.class, CustomerMapperImpl.class})
 class CustomerDaoTest {
     @Autowired
     private CustomerDao customerDao;

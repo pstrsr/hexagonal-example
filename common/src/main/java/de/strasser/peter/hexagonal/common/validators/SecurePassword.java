@@ -17,23 +17,25 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = SecurePassword.PasswordValidator.class)
 public @interface SecurePassword {
 
-    String message() default
-            "# a digit must occur at least once\n" +
-                    "# a lower case letter must occur at least once\n" +
-                    "# an upper case letter must occur at least once\n" +
-                    "# a special character must occur at least once ( one of !@#$%^&*(),.?\":{}|<>) \n" +
-                    "# no whitespace allowed in the entire string\n" +
-                    "# anything, at least eight places though";
+  String message() default
+      "# a digit must occur at least once\n"
+          + "# a lower case letter must occur at least once\n"
+          + "# an upper case letter must occur at least once\n"
+          + "# a special character must occur at least once ( one of !@#$%^&*(),.?\":{}|<>) \n"
+          + "# no whitespace allowed in the entire string\n"
+          + "# anything, at least eight places though";
 
-    Class<?>[] groups() default {};
+  Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default {};
+  Class<? extends Payload>[] payload() default {};
 
-    class PasswordValidator implements ConstraintValidator<SecurePassword, String> {
+  class PasswordValidator implements ConstraintValidator<SecurePassword, String> {
 
-        @Override
-        public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-            return s != null && s.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>])(?=\\S+$).{8,}$");
-        }
+    @Override
+    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+      return s != null
+          && s.matches(
+              "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>])(?=\\S+$).{8,}$");
     }
+  }
 }
