@@ -5,9 +5,9 @@ import de.strasser.peter.hexagonal.application.customer.domain.Customer;
 import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import de.strasser.peter.hexagonal.application.customer.port.in.AddAddressUseCase;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
-import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +22,9 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 class AddressService implements AddAddressUseCase {
-    private final SaveCustomerAdapter saveCustomerAdapter;
-    private final AddressValidatorAdapter addressValidatorAdapter;
-    private final LoadCustomerAdapter loadCustomerAdapter;
+    private final SaveCustomerPort saveCustomerAdapter;
+    private final AddressValidatorPort addressValidatorAdapter;
+    private final LoadCustomerPort loadCustomerAdapter;
     private final AddAddressMapper addAddressMapper;
 
     @Override

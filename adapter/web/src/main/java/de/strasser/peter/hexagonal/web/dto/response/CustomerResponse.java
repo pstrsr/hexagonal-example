@@ -16,6 +16,6 @@ public class CustomerResponse {
   private BigInteger id;
   private String name;
   private LocalDate birthday;
-  private Map<Address.AddressType, AddressResponse> addresses;
+  private Map<AddressTypeResponse, AddressResponse> addresses;
   private int age;
 }

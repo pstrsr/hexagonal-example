@@ -4,9 +4,9 @@ import de.strasser.peter.hexagonal.application.customer.domain.Address;
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
 import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
-import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
 import de.strasser.peter.hexagonal.application.customer.port.out.commands.ValidateAddressCommand;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +29,9 @@ import static org.mockito.BDDMockito.then;
 class AddressServiceTest {
 
   @Autowired private AddressService sut;
-  @MockBean private SaveCustomerAdapter saveCustomerAdapterMock;
-  @MockBean private AddressValidatorAdapter addressValidatorAdapterMock;
-  @MockBean private LoadCustomerAdapter loadCustomerAdapterMock;
+  @MockBean private SaveCustomerPort saveCustomerAdapterMock;
+  @MockBean private AddressValidatorPort addressValidatorAdapterMock;
+  @MockBean private LoadCustomerPort loadCustomerAdapterMock;
   @SpyBean private AddAddressMapper addAddressMapperMock;
 
   @Test

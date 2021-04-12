@@ -2,8 +2,8 @@ package de.strasser.peter.hexagonal.persistence;
 
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
 import de.strasser.peter.hexagonal.application.customer.port.in.QueryAllCustomersCRUD;
-import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
 import de.strasser.peter.hexagonal.persistence.errors.CustomerDoesNotExistExc;
 import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapper;
 import de.strasser.peter.hexagonal.persistence.model.CustomerEntity;
@@ -19,7 +19,7 @@ import java.util.List;
 @Repository
 @RequiredArgsConstructor
 public class CustomerDao
-    implements SaveCustomerAdapter, LoadCustomerAdapter, QueryAllCustomersCRUD {
+    implements SaveCustomerPort, LoadCustomerPort, QueryAllCustomersCRUD {
   private final CustomerRepository customerRepository;
   private final CustomerMapper customerMapper;
 

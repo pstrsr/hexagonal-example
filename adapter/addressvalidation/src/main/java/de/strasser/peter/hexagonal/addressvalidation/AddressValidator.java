@@ -1,14 +1,14 @@
 package de.strasser.peter.hexagonal.addressvalidation;
 
 import de.strasser.peter.hexagonal.application.customer.domain.Address;
-import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
 import de.strasser.peter.hexagonal.application.customer.port.out.commands.ValidateAddressCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-class AddressValidator implements AddressValidatorAdapter {
+class AddressValidator implements AddressValidatorPort {
 
     @Override
     public Address validate(ValidateAddressCommand validateAddressCommand) throws InvalidAddressExc {

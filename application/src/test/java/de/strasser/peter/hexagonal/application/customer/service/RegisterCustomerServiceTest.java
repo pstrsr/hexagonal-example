@@ -2,9 +2,9 @@ package de.strasser.peter.hexagonal.application.customer.service;
 
 import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
-import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerAdapter;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
+import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +25,11 @@ class RegisterCustomerServiceTest {
     private RegisterCustomerService sut;
 
     @MockBean
-    private SaveCustomerAdapter saveCustomerAdapterMock;
+    private SaveCustomerPort saveCustomerAdapterMock;
     @MockBean
-    private AddressValidatorAdapter addressValidatorAdapterMock;
+    private AddressValidatorPort addressValidatorAdapterMock;
     @MockBean
-    private LoadCustomerAdapter loadCustomerAdapterMock;
+    private LoadCustomerPort loadCustomerAdapterMock;
     @MockBean
     private AddAddressMapper addAddressMapperMock;
 

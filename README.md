@@ -15,11 +15,12 @@ Most of the information on how to design in this way are from the following book
 To run this application you need to first run a
 
 ```cmd
-mvn clean install
+mvn clean 
 ```
 
 in the root directory of this project. This will download all required dependecies and bundle your
-project properly.
+project properly. It will also auto generate some mapping classes with
+the [mapstruct](https://mapstruct.org/) plugin.
 
 The database for this application is a mongo db. You either need to have one running on your system,
 or you can alternatively start the MongoDB in docker with the included docker-compose file.
@@ -50,7 +51,42 @@ way.
 
 ### Application architecture
 
-![img_3.jpg](documentation/dependency_diagram.jpg)
+This application tries to follow the design princples as described in Clean Architecture. To achieve
+key characteristics of a good architecture (Single Responsibility, Flexibility, Testability, ... ),
+one very defining lession of Robert C. Martins book is that the business logik should be at the core
+of the system.
+
+![circles](documentation/circles.png)
+
+This diagram shows where dependencies in a system should point to achieve this. How to implement
+this however, feels very abstract.
+
+Alistair Cockburn took this concept and
+definied [hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)).
+Alternatively this style is also known as the ports and adapters architecture. Perhaps more fitting,
+but certainly not as exciting sounding as a hexagon.
+
+![hexagonal](documentation/Hexagonal.png)
+
+In the middle lives the **Domain**. This is where all the business logik is contained. Ideally this
+code is free of any framework specific annotations. This is especially great for unit testing your
+logik. No spring context, that has to boot, or any services that need to be mocked. Just plain
+normal Java, which is easy to understand and fast to execute.
+
+Ecapsulating these Domain models are the **Use Cases**. These represent the features that our
+application provides. They receive commands and query / write the data to the adapters.
+
+Between the Use Cases and the **Adapters** are the **Ports**. Especially the output ports are
+important to control the direction of dependencies. In Java these represent interfaces. The output
+adapters implement the output ports and therefore have to follow the contract, that the core of the
+application defines for them. The input adapters only interact with the input ports and never with
+the implementing serivces directly.
+
+This clear separation of concerns greatly increases flexibiliy. If you wanted to switch from an SQL
+to NoSQL DB, you'd just have to rewrite your Persistence Adapter, but the rest of the application
+should not be affected by your change.
+
+![dependency diagram](documentation/dependencies.png)
 
 ### Advantages of separated models on each layer in this example
 
@@ -58,7 +94,10 @@ way.
   the concern in what way to display the data to the client.
 
 
-- The customer can be persisted different from the domain models structure. The layout in this
-  example has no benefit, but assume structuring your data in this way would give you a much needed
-  performance boost. This way the concern on how to handle data persistence is independent from the
-  business layer and can be handled by the persistence module.
+- The AddressType properties can be annotated with web specific annotiations to control
+  serialization, without cluttering the domain.
+
+
+- The customer can be persisted different from the domain models structure. This way the concern on
+  how to handle data persistence is independent from the business layer and can be handled by the
+  persistence module.

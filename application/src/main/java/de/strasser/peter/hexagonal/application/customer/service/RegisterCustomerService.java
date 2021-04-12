@@ -3,7 +3,7 @@ package de.strasser.peter.hexagonal.application.customer.service;
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
 import de.strasser.peter.hexagonal.application.customer.port.in.RegisterCustomerUseCase;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerAdapter;
+import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Validated
 @RequiredArgsConstructor
 class RegisterCustomerService implements RegisterCustomerUseCase {
-    private final SaveCustomerAdapter saveUser;
+    private final SaveCustomerPort saveUser;
 
     @Override
     public void register(@Valid RegisterCustomerCommand registerCmd) {
