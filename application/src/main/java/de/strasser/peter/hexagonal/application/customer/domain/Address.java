@@ -10,7 +10,6 @@ public class Address {
     Integer zipCode;
     String country;
 
-
     public enum AddressType {
         DEFAULT,
         SHIPPING,

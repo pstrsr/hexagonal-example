@@ -18,10 +18,11 @@ To run this application you need to first run a
 mvn clean install
 ```
 
-in the root directory of this project. This will download all required dependecies and bundle your project properly.
+in the root directory of this project. This will download all required dependecies and bundle your
+project properly.
 
-The database for this application is a mongo db. You either need to have one running on your system, or you can
-alternatively start the MongoDB in docker with the included docker-compose file.
+The database for this application is a mongo db. You either need to have one running on your system,
+or you can alternatively start the MongoDB in docker with the included docker-compose file.
 
 ```cmd
 docker-compose -f mongodb-docker-compose up
@@ -37,11 +38,13 @@ hexagonal-example\config\src\main\java\de\strasser\peter\hexagonal\HexagonalAppl
 
 ### What does this application do
 
-This app can register customers, add addresses to these customers and retrieve a list of all customers.
+This app can register customers, add addresses to these customers and retrieve a list of all
+customers.
 
 The supported usecases in the business layer can be inspected in the applicationmodule. Under
-application/src/main/java/de/strasser/peter/hexagonal/application/customer/port all the supported operations are clearly
-visible, which is a major selling point to structure your application in this way.
+application/src/main/java/de/strasser/peter/hexagonal/application/customer/port all the supported
+operations are clearly visible, which is a major selling point to structure your application in this
+way.
 
 ![img_1.png](documentation/ports.png)
 
@@ -49,3 +52,13 @@ visible, which is a major selling point to structure your application in this wa
 
 ![img_3.jpg](documentation/dependency_diagram.jpg)
 
+### Advantages of separated models on each layer in this example
+
+- The customer response can easily exclude the (hashed) password without much effort. This seperates
+  the concern in what way to display the data to the client.
+
+
+- The customer can be persisted different from the domain models structure. The layout in this
+  example has no benefit, but assume structuring your data in this way would give you a much needed
+  performance boost. This way the concern on how to handle data persistence is independent from the
+  business layer and can be handled by the persistence module.

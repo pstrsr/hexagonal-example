@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component;
 class AddressValidator implements AddressValidatorAdapter {
 
     @Override
-    public Address validate(ValidateAddressCommand validateAddressCommand) {
+    public Address validate(ValidateAddressCommand validateAddressCommand) throws InvalidAddressExc {
         // This could be some call to a 3rd party to validate this address.
         if (validateAddressCommand.getStreet().equalsIgnoreCase("parkring")) {
             log.info("Address is made up.");
-            throw new AddressDoesNotExistExc(validateAddressCommand);
+            throw new InvalidAddressExc(validateAddressCommand);
         }
 
         return new Address(
