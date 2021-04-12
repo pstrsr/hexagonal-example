@@ -82,9 +82,22 @@ adapters implement the output ports and therefore have to follow the contract, t
 application defines for them. The input adapters only interact with the input ports and never with
 the implementing serivces directly.
 
-This clear separation of concerns greatly increases flexibiliy. If you wanted to switch from an SQL
+This clear separation of concerns greatly increases flexibility. If you wanted to switch from an SQL
 to NoSQL DB, you'd just have to rewrite your Persistence Adapter, but the rest of the application
 should not be affected by your change.
+
+To achieve true decoupling between the application components the services are not allowed to
+construct instances of objects themselves. If a use case class would construct the instance of an
+output adapter in its class it would introduce dependencies into that layer, which we do not want.
+
+For that we need an all controlling component, which instantiates all classes. This could be just a
+main class in Java, where all the classes are constructed and dependencies are manually injected. In
+a big enterprise application this task, would become confusing very fast. Typically, the role of
+this all controlling component would be some form of DI-Framework, like Dagger, Guice, or in this
+case Spring.
+
+In the following diagram all dependencies, as they are implemented in the app are shown. The
+configuration component is the component, where the Spring main function lives.
 
 ![dependency diagram](documentation/dependencies.png)
 
