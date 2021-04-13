@@ -62,7 +62,7 @@ This diagram shows where dependencies in a system should point to achieve this. 
 this however, feels very abstract.
 
 Alistair Cockburn took this concept and
-definied [hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)).
+defined [hexagonal architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)).
 Alternatively this style is also known as the ports and adapters architecture. Perhaps more fitting,
 but certainly not as exciting sounding as a hexagon.
 
@@ -96,6 +96,10 @@ a big enterprise application this task, would become confusing very fast. Typica
 this all controlling component would be some form of DI-Framework, like Dagger, Guice, or in this
 case Spring.
 
+## Architecture as implemented in this project
+
+### Overview
+
 In the following diagram all dependencies, as they are implemented in the app are shown. The
 configuration component is the component, where the Spring main function lives.
 
@@ -103,14 +107,17 @@ configuration component is the component, where the Spring main function lives.
 
 ### Advantages of separated models on each layer in this example
 
-- The customer response can easily exclude the (hashed) password without much effort. This seperates
+- The customer response can easily exclude the (hashed) password without much effort. This separates
   the concern in what way to display the data to the client.
 
 
-- The AddressType properties can be annotated with web specific annotiations to control
+- The AddressType properties can be annotated with web specific annotations to control
   serialization, without cluttering the domain.
 
 
 - The customer can be persisted different from the domain models structure. This way the concern on
-  how to handle data persistence is independent from the business layer and can be handled by the
+  how to handle data persistence is independent of the business layer and can be handled by the
   persistence module.
+
+- The Command models can validate the input to the business logik and make sure nothing
+  unprocessable enters the services.
