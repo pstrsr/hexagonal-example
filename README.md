@@ -21,7 +21,7 @@ Most of the information on how to design in this way are from the following book
 To run this application you need to first run a
 
 ```cmd
-mvn clean 
+mvn clean install
 ```
 
 in the root directory of this project. This will download all required dependencies and bundle your
