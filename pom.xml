@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
 
     <groupId>de.strasser.peter.hexagonal</groupId>
     <artifactId>hexagonaldemo</artifactId>
@@ -17,9 +12,71 @@
     <description>Demo project for hexagonal architecture</description>
     <properties>
         <java.version>14</java.version>
-        <project.version>0.0.1-SNAPSHOT</project.version>
-
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <org.lombok.version>1.18.16</org.lombok.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <spring-boot-starter-parent.version>2.4.4</spring-boot-starter-parent.version>
+        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
+        <application.version>0.0.1-SNAPSHOT</application.version>
+        <common.version>0.0.1-SNAPSHOT</common.version>
+        <addressvalidation.version>0.0.1-SNAPSHOT</addressvalidation.version>
+        <web.version>0.0.1-SNAPSHOT</web.version>
+        <persistence.version>0.0.1-SNAPSHOT</persistence.version>
     </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot-starter-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${org.lombok.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-mapstruct-binding</artifactId>
+                <version>${lombok-mapstruct-binding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.strasser.peter.hexagonal</groupId>
+                <artifactId>application</artifactId>
+                <version>${application.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.strasser.peter.hexagonal</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.strasser.peter.hexagonal</groupId>
+                <artifactId>addressvalidation</artifactId>
+                <version>${addressvalidation.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.strasser.peter.hexagonal</groupId>
+                <artifactId>web</artifactId>
+                <version>${web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.strasser.peter.hexagonal</groupId>
+                <artifactId>persistence</artifactId>
+                <version>${persistence.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
         <module>config</module>
@@ -29,12 +86,4 @@
         <module>application</module>
         <module>common</module>
     </modules>
-
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-    </dependencies>
 </project>

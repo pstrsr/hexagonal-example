@@ -3,22 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>de.strasser.peter.hexagonal</groupId>
+        <artifactId>hexagonaldemo</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+
     </parent>
 
-    <groupId>de.strasser.peter.hexagonal</groupId>
+
     <artifactId>web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>web</name>
     <description>Web adapter</description>
+
     <properties>
         <java.version>14</java.version>
-        <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
-        <org.lombok.version>1.18.12</org.lombok.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -34,24 +35,20 @@
         <dependency>
             <groupId>de.strasser.peter.hexagonal</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>de.strasser.peter.hexagonal</groupId>
             <artifactId>application</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${org.lombok.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -73,6 +70,11 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${org.lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${lombok-mapstruct-binding.version}</version>
                         </path>
                         <!-- other annotation processors -->
                     </annotationProcessorPaths>
