@@ -1,4 +1,7 @@
-package de.strasser.peter.hexagonal.common.validators;
+package de.strasser.peter.hexagonal.application.customer.validator;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -29,13 +32,17 @@ public @interface SecurePassword {
 
   Class<? extends Payload>[] payload() default {};
 
+  @Component
   class PasswordValidator implements ConstraintValidator<SecurePassword, String> {
+    private static final String DEFAULT_PASSWORD_REQUIREMENTS =
+        "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>])(?=\\S+$).{8,}$";
+
+    @Value("${password.format:" + DEFAULT_PASSWORD_REQUIREMENTS + "}")
+    private String pwFormat;
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-      return s != null
-          && s.matches(
-              "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?\":{}|<>])(?=\\S+$).{8,}$");
+      return s != null && s.matches(pwFormat);
     }
   }
 }

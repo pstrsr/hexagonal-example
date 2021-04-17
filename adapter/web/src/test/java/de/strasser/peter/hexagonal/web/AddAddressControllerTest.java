@@ -2,7 +2,7 @@ package de.strasser.peter.hexagonal.web;
 
 import de.strasser.peter.hexagonal.application.customer.port.in.AddAddressUseCase;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
-import de.strasser.peter.hexagonal.common.validators.TestUtils;
+import de.strasser.peter.hexagonal.common.validators.ReadStringResources;
 import de.strasser.peter.hexagonal.web.mapper.AddAddressWebMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,7 @@ class AddAddressControllerTest {
 
   @Test
   public void should_AddAddress() throws Exception {
-    final String body = TestUtils.readStringFromResource("valid_add_address.json");
+    final String body = ReadStringResources.readStringFromResource("valid_add_address.json");
     final int customerId = 1231231;
 
     mockMvc

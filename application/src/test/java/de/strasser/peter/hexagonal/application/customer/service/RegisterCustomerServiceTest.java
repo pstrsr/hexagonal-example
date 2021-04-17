@@ -30,8 +30,7 @@ class RegisterCustomerServiceTest {
     private AddressValidatorPort addressValidatorAdapterMock;
     @MockBean
     private LoadCustomerPort loadCustomerAdapterMock;
-    @MockBean
-    private AddAddressMapper addAddressMapperMock;
+
 
     @BeforeEach
     public void setUp() {

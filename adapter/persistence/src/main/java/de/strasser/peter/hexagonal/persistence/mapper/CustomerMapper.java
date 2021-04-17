@@ -43,7 +43,8 @@ public interface CustomerMapper {
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getStreet),
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getHouseNumber),
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getZipCode),
-        getAddressAttribute(customer, Address.AddressType.BILLING, Address::getCountry));
+        getAddressAttribute(customer, Address.AddressType.BILLING, Address::getCountry),
+        null);
   }
 
   private <T> T getAddressAttribute(

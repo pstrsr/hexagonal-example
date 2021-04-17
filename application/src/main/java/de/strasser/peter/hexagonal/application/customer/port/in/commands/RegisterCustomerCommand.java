@@ -1,7 +1,7 @@
 package de.strasser.peter.hexagonal.application.customer.port.in.commands;
 
 
-import de.strasser.peter.hexagonal.common.validators.SecurePassword;
+import de.strasser.peter.hexagonal.application.customer.validator.SecurePassword;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

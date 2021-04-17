@@ -32,7 +32,6 @@ class AddressServiceTest {
   @MockBean private SaveCustomerPort saveCustomerAdapterMock;
   @MockBean private AddressValidatorPort addressValidatorAdapterMock;
   @MockBean private LoadCustomerPort loadCustomerAdapterMock;
-  @SpyBean private AddAddressMapper addAddressMapperMock;
 
   @Test
   public void should_AddAddress() {

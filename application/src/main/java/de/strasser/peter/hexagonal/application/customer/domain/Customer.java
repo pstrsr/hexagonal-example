@@ -18,10 +18,10 @@ import java.util.Map;
 public class Customer {
   private final BigInteger id;
   private String name;
-  private String hashedPassword;
-  private LocalDate birthday;
-  private int age;
-  private Map<Address.AddressType, Address> addresses;
+  private final String hashedPassword;
+  private final LocalDate birthday;
+  private final int age;
+  private final Map<Address.AddressType, Address> addresses;
   private boolean active;
 
   private Customer(

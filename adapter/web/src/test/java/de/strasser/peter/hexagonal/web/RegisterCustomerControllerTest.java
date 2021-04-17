@@ -2,7 +2,7 @@ package de.strasser.peter.hexagonal.web;
 
 import de.strasser.peter.hexagonal.application.customer.port.in.RegisterCustomerUseCase;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
-import de.strasser.peter.hexagonal.common.validators.TestUtils;
+import de.strasser.peter.hexagonal.common.validators.ReadStringResources;
 import de.strasser.peter.hexagonal.web.mapper.RegisterCustomerWebMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ class RegisterCustomerControllerTest {
 
   @Test
   public void should_RegisterUser_When_SendingValidRequest() throws Exception {
-    final String body = TestUtils.readStringFromResource("valid_register_customer.json");
+    final String body = ReadStringResources.readStringFromResource("valid_register_customer.json");
     mockMvc
         .perform(post("/v1/register").contentType(MediaType.APPLICATION_JSON).content(body))
         .andExpect(status().isOk())
@@ -43,7 +43,7 @@ class RegisterCustomerControllerTest {
 
   @Test
   public void should_DenyRequest_When_SendingInvalidDateFormat() throws Exception {
-    final String body = TestUtils.readStringFromResource("invalid_date_register_customer.json");
+    final String body = ReadStringResources.readStringFromResource("invalid_date_register_customer.json");
 
     mockMvc
         .perform(post("/v1/register").contentType(MediaType.APPLICATION_JSON).content(body))
