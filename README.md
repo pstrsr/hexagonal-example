@@ -174,17 +174,31 @@ With the interface the CustomerDao depends on the Application module.
 
 ### Validations
 
-A general rule I like to follow, which is hard to enforce by code is, is that all domain models can only be instanciated in a valid state. For this the AddAddressUsecase is very interesting. Our business requires us to validate our address against a 3rd party system to ensure the correctness of the address.
+A general rule I like to follow, is that all domain models can only be instantiated in a valid
+state. For this the AddAddressUsecase is very interesting. Our business requires us to validate our
+address against a 3rd party system to ensure the correctness of the address.
 
-For this we take the AddAddressCommand and transfrom it into a ValidateAddressCommand. More often than not these models are the same in structure. They should still be two different models though, because they achive different purposes (trigger add-address usecase vs validate-address) and as two different things should also be seperate classes in the code. This may seems unnecessarily complicated, but most of the time our mapping framework (in this case mapstrcut) will do this work for us anyway. 
+For this we take the AddAddressCommand and transform it into a ValidateAddressCommand. More often
+than not these models are the same in structure. They should still be two different models though,
+because they achieve different purposes (trigger add-address usecase vs validate-address) and as two
+different things should also be separate classes in the code. This may seem unnecessarily
+complicated, but most of the time our mapping framework (in this case mapstruct) will do this work
+for us anyway.
 
-So once we have that ValidateAddressCommand we pass that into the ValidateAddressPort, which behind some abstraction that we don't know about in our application module does some validation magic. We then get a perfectly valid address model back from this adapter, which we can then use in our UseCase / Domain logic.
+![img.png](documentation/add-address-commands.png)
+
+So once we have that ValidateAddressCommand we pass that into the ValidateAddressPort, which behind
+some abstraction that we don't know about in our application module does some validation magic. We
+then get a perfectly valid address model back from this adapter, which we can then use in our
+UseCase / Domain logic.
+
+![img.png](documentation/valid-address-port.png)
 
 ### Disadvantages of this architecture
 
-This style of implementing a service has alot of overhead. For a simple CRUD application or any
-application without much business logic this approach, would certainly be overkill and would result
-in alot of tedious mapping without much benefit.
+This style of implementing a service has a lot of overhead. For a simple CRUD application or any
+application without much business logic this approach would certainly be overkill and would result
+in a lot of tedious mapping without much benefit.
 
 ### So when should I use this architecture?
 
