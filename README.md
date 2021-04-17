@@ -53,6 +53,12 @@ way.
 
 ![img_1.png](documentation/ports.png)
 
+A list of all the supported endpoint can be found and tried out in the swagger ui.
+
+```
+http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
+```
+
 ### Application architecture
 
 This application tries to follow the design princples as described in Clean Architecture. To achieve
