@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-public class TestConfiguration {
+public class WebTestConfiguration {
 
 
 }
