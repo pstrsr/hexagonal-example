@@ -12,18 +12,17 @@
     <description>Demo project for hexagonal architecture</description>
     <properties>
         <java.version>14</java.version>
+        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <org.lombok.version>1.18.16</org.lombok.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <spring-boot-starter-parent.version>2.4.4</spring-boot-starter-parent.version>
-        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
         <application.version>0.0.1-SNAPSHOT</application.version>
         <common.version>0.0.1-SNAPSHOT</common.version>
         <addressvalidation.version>0.0.1-SNAPSHOT</addressvalidation.version>
         <web.version>0.0.1-SNAPSHOT</web.version>
         <persistence.version>0.0.1-SNAPSHOT</persistence.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
