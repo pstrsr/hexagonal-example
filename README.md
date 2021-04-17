@@ -21,7 +21,7 @@ Most of the information on how to design in this way are from the following book
 To run this application you need to first run a
 
 ```cmd
-mvn clean 
+mvn clean install
 ```
 
 in the root directory of this project. This will download all required dependencies and bundle your
@@ -171,6 +171,14 @@ Without the interface the RegisterCustomerService / application module depends o
 ![dependency](documentation/dependency_inversion.png)
 
 With the interface the CustomerDao depends on the Application module.
+
+### Validations
+
+A general rule I like to follow, which is hard to enforce by code is, is that all domain models can only be instanciated in a valid state. For this the AddAddressUsecase is very interesting. Our business requires us to validate our address against a 3rd party system to ensure the correctness of the address.
+
+For this we take the AddAddressCommand and transfrom it into a ValidateAddressCommand. More often than not these models are the same in structure. They should still be two different models though, because they achive different purposes (trigger add-address usecase vs validate-address) and as two different things should also be seperate classes in the code. This may seems unnecessarily complicated, but most of the time our mapping framework (in this case mapstrcut) will do this work for us anyway. 
+
+So once we have that ValidateAddressCommand we pass that into the ValidateAddressPort, which behind some abstraction that we don't know about in our application module does some validation magic. We then get a perfectly valid address model back from this adapter, which we can then use in our UseCase / Domain logic.
 
 ### Disadvantages of this architecture
 
