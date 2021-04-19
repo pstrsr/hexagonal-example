@@ -16,17 +16,18 @@ import javax.validation.Valid;
 @Validated
 @RequiredArgsConstructor
 class RegisterCustomerService implements RegisterCustomerUseCase {
-    private final SaveCustomerPort saveUser;
+  private final SaveCustomerPort saveUser;
 
-    @Override
-    public void register(@Valid RegisterCustomerCommand registerCmd) {
-        var encryptedPw = this.superSecureHashingAlgorithm(registerCmd.getClearPassword());
-        var newCustomer = Customer.newCustomer(registerCmd.getName(), encryptedPw, registerCmd.getBirthDay());
+  @Override
+  public void register(@Valid RegisterCustomerCommand registerCmd) {
+    var encryptedPw = this.superSecureHashingAlgorithm(registerCmd.getClearPassword());
+    var newCustomer =
+        Customer.newCustomer(registerCmd.getName(), encryptedPw, registerCmd.getBirthDay());
 
-        saveUser.upsert(newCustomer);
-    }
+    saveUser.upsert(newCustomer);
+  }
 
-    private String superSecureHashingAlgorithm(String s) {
-        return new StringBuilder(s).reverse().toString();
-    }
+  private String superSecureHashingAlgorithm(String s) {
+    return new StringBuilder(s).reverse().toString();
+  }
 }

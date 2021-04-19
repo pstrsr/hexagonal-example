@@ -9,5 +9,6 @@ import java.math.BigInteger;
 import java.util.List;
 
 public interface AddAddressUseCase {
-    void addAddresses(@Min(0) BigInteger customerId, @Valid @NotEmpty List<AddAddressCommand> addresses);
+  void addAddresses(
+      @Min(0) BigInteger customerId, @Valid @NotEmpty List<AddAddressCommand> addresses);
 }

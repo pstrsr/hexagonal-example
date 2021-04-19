@@ -1,6 +1,5 @@
 package de.strasser.peter.hexagonal.application.customer.service;
 
-import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
 import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
 import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
@@ -21,48 +20,47 @@ import static org.mockito.BDDMockito.willDoNothing;
 @SpringBootTest
 class RegisterCustomerServiceTest {
 
-    @Autowired
-    private RegisterCustomerService sut;
+  @Autowired private RegisterCustomerService sut;
 
-    @MockBean
-    private SaveCustomerPort saveCustomerAdapterMock;
-    @MockBean
-    private AddressValidatorPort addressValidatorAdapterMock;
-    @MockBean
-    private LoadCustomerPort loadCustomerAdapterMock;
+  @MockBean private SaveCustomerPort saveCustomerAdapterMock;
+  @MockBean private AddressValidatorPort addressValidatorAdapterMock;
+  @MockBean private LoadCustomerPort loadCustomerAdapterMock;
 
+  @BeforeEach
+  public void setUp() {
+    willDoNothing().given(saveCustomerAdapterMock).upsert(any());
+  }
 
-    @BeforeEach
-    public void setUp() {
-        willDoNothing().given(saveCustomerAdapterMock).upsert(any());
-    }
+  @Test
+  public void should_ThrowInvalidBirthDate_When_PassingDateInFuture() {
+    RegisterCustomerCommand registerCustomerCommand =
+        new RegisterCustomerCommand("Hans", LocalDate.now().plusDays(1), "secretPassword");
 
-    @Test
-    public void should_ThrowInvalidBirthDate_When_PassingDateInFuture() {
-        RegisterCustomerCommand registerCustomerCommand =
-                new RegisterCustomerCommand("Hans", LocalDate.now().plusDays(1), "secretPassword");
-
-        assertThrows(ConstraintViolationException.class, () -> {
-            sut.register(registerCustomerCommand);
+    assertThrows(
+        ConstraintViolationException.class,
+        () -> {
+          sut.register(registerCustomerCommand);
         });
-    }
+  }
 
-    @Test
-    public void should_ThrowInvalidPassword_When_PassingInsecurePassword() {
-        LocalDate birthday = LocalDate.of(1980, 1, 1);
-        RegisterCustomerCommand registerCustomerCommand =
-                new RegisterCustomerCommand("Hans", birthday, "secretPassword");
+  @Test
+  public void should_ThrowInvalidPassword_When_PassingInsecurePassword() {
+    LocalDate birthday = LocalDate.of(1980, 1, 1);
+    RegisterCustomerCommand registerCustomerCommand =
+        new RegisterCustomerCommand("Hans", birthday, "secretPassword");
 
-        assertThrows(ConstraintViolationException.class, () -> {
-            sut.register(registerCustomerCommand);
+    assertThrows(
+        ConstraintViolationException.class,
+        () -> {
+          sut.register(registerCustomerCommand);
         });
-    }
+  }
 
-    @Test
-    public void should_SaveUser() {
-        LocalDate birthday = LocalDate.of(1980, 1, 1);
-        RegisterCustomerCommand registerCustomerCommand =
-                new RegisterCustomerCommand("Hans", birthday, "Ha012!321+dw");
-        sut.register(registerCustomerCommand);
-    }
+  @Test
+  public void should_SaveUser() {
+    LocalDate birthday = LocalDate.of(1980, 1, 1);
+    RegisterCustomerCommand registerCustomerCommand =
+        new RegisterCustomerCommand("Hans", birthday, "Ha012!321+dw");
+    sut.register(registerCustomerCommand);
+  }
 }

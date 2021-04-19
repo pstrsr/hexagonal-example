@@ -5,5 +5,5 @@ import de.strasser.peter.hexagonal.application.customer.port.in.commands.Registe
 import javax.validation.Valid;
 
 public interface RegisterCustomerUseCase {
-    void register(@Valid RegisterCustomerCommand registerCustomerCommand);
+  void register(@Valid RegisterCustomerCommand registerCustomerCommand);
 }

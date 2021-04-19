@@ -6,5 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface AddAddressMapper {
-    ValidateAddressCommand toOutCmd(AddAddressCommand addAddressCommand);
+  ValidateAddressCommand toOutCmd(AddAddressCommand addAddressCommand);
 }

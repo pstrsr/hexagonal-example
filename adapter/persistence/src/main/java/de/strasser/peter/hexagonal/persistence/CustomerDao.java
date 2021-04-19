@@ -18,8 +18,7 @@ import java.util.List;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class CustomerDao
-    implements SaveCustomerPort, LoadCustomerPort, QueryAllCustomersCRUD {
+public class CustomerDao implements SaveCustomerPort, LoadCustomerPort, QueryAllCustomersCRUD {
   private final CustomerRepository customerRepository;
   private final CustomerMapper customerMapper;
 

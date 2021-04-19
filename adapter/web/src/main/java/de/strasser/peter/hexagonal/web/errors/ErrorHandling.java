@@ -14,32 +14,36 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class ErrorHandling {
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ErrorResponse> constrainViolationException(HttpServletRequest req, ConstraintViolationException exc) {
-        return ErrorResponse.createErrorResp(req, HttpStatus.BAD_REQUEST, exc);
-    }
+  @ExceptionHandler(ConstraintViolationException.class)
+  public ResponseEntity<ErrorResponse> constrainViolationException(
+      HttpServletRequest req, ConstraintViolationException exc) {
+    return ErrorResponse.createErrorResp(req, HttpStatus.BAD_REQUEST, exc);
+  }
 
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorResponse> constrainViolationException(HttpServletRequest req, BusinessException exc) {
-        return ErrorResponse.createErrorResp(req, HttpStatus.BAD_REQUEST, exc);
-    }
+  @ExceptionHandler(BusinessException.class)
+  public ResponseEntity<ErrorResponse> constrainViolationException(
+      HttpServletRequest req, BusinessException exc) {
+    return ErrorResponse.createErrorResp(req, HttpStatus.BAD_REQUEST, exc);
+  }
 
-    @Value
-    public static class ErrorResponse {
-        String timestamp;
-        Integer status;
-        String error;
-        String message;
-        String path;
+  @Value
+  public static class ErrorResponse {
+    String timestamp;
+    Integer status;
+    String error;
+    String message;
+    String path;
 
-        public static ResponseEntity<ErrorResponse> createErrorResp(HttpServletRequest req, HttpStatus code, Exception e) {
-            final ErrorResponse errResponse = new ErrorResponse(
-                    LocalDateTime.now().toString(),
-                    code.value(),
-                    e.getClass().getSimpleName(),
-                    e.getMessage(),
-                    req.getRequestURI());
-            return ResponseEntity.status(code).body(errResponse);
-        }
+    public static ResponseEntity<ErrorResponse> createErrorResp(
+        HttpServletRequest req, HttpStatus code, Exception e) {
+      final ErrorResponse errResponse =
+          new ErrorResponse(
+              LocalDateTime.now().toString(),
+              code.value(),
+              e.getClass().getSimpleName(),
+              e.getMessage(),
+              req.getRequestURI());
+      return ResponseEntity.status(code).body(errResponse);
     }
+  }
 }

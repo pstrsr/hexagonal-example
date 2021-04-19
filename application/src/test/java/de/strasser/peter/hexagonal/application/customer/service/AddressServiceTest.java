@@ -2,7 +2,6 @@ package de.strasser.peter.hexagonal.application.customer.service;
 
 import de.strasser.peter.hexagonal.application.customer.domain.Address;
 import de.strasser.peter.hexagonal.application.customer.domain.Customer;
-import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
 import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
 import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
@@ -12,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.math.BigInteger;
 import java.time.LocalDate;

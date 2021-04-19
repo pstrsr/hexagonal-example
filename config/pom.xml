@@ -48,6 +48,8 @@
             <groupId>de.strasser.peter.hexagonal</groupId>
             <artifactId>persistence</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <build>

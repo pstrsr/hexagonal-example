@@ -1,6 +1,5 @@
 package de.strasser.peter.hexagonal.web.dto.response;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

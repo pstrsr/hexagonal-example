@@ -7,6 +7,6 @@ import org.mapstruct.Mapping;
 
 @Mapper
 public interface RegisterCustomerWebMapper {
-    @Mapping(source = "password", target = "clearPassword")
-    RegisterCustomerCommand toCmd(RegisterCustomerRequest registerCustomerRequest);
+  @Mapping(source = "password", target = "clearPassword")
+  RegisterCustomerCommand toCmd(RegisterCustomerRequest registerCustomerRequest);
 }

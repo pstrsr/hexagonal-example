@@ -22,28 +22,30 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 class AddressService implements AddAddressUseCase {
-    private final SaveCustomerPort saveCustomerAdapter;
-    private final AddressValidatorPort addressValidatorAdapter;
-    private final LoadCustomerPort loadCustomerAdapter;
-    private final AddAddressMapper addAddressMapper;
+  private final SaveCustomerPort saveCustomerAdapter;
+  private final AddressValidatorPort addressValidatorAdapter;
+  private final LoadCustomerPort loadCustomerAdapter;
+  private final AddAddressMapper addAddressMapper;
 
-    @Override
-    public void addAddresses(@Min(0) BigInteger customerId, @Valid @NotEmpty List<AddAddressCommand> addAddressCmds) {
-        final Customer customer = loadCustomerAdapter.findById(customerId);
+  @Override
+  public void addAddresses(
+      @Min(0) BigInteger customerId, @Valid @NotEmpty List<AddAddressCommand> addAddressCmds) {
+    final Customer customer = loadCustomerAdapter.findById(customerId);
 
-        final Map<Address.AddressType, Address> addresses = new HashMap<>();
-        addAddressCmds.forEach(addAddressCommand -> validateAndAddToMap(addresses, addAddressCommand));
+    final Map<Address.AddressType, Address> addresses = new HashMap<>();
+    addAddressCmds.forEach(addAddressCommand -> validateAndAddToMap(addresses, addAddressCommand));
 
-        customer.addAddresses(addresses);
+    customer.addAddresses(addresses);
 
-        saveCustomerAdapter.upsert(customer);
-    }
+    saveCustomerAdapter.upsert(customer);
+  }
 
-    private void validateAndAddToMap(Map<Address.AddressType, Address> addresses, AddAddressCommand addAddressCommand) {
-        final var addressType = Address.AddressType.fromString(addAddressCommand.getType());
-        final var validateAddressCmd = addAddressMapper.toOutCmd(addAddressCommand);
-        final var validatedAddress = addressValidatorAdapter.validate(validateAddressCmd);
+  private void validateAndAddToMap(
+      Map<Address.AddressType, Address> addresses, AddAddressCommand addAddressCommand) {
+    final var addressType = Address.AddressType.fromString(addAddressCommand.getType());
+    final var validateAddressCmd = addAddressMapper.toOutCmd(addAddressCommand);
+    final var validatedAddress = addressValidatorAdapter.validate(validateAddressCmd);
 
-        addresses.put(addressType, validatedAddress);
-    }
+    addresses.put(addressType, validatedAddress);
+  }
 }

@@ -1,6 +1,5 @@
 package de.strasser.peter.hexagonal.application.customer.port.in.commands;
 
-
 import de.strasser.peter.hexagonal.application.customer.validator.SecurePassword;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class RegisterCustomerCommand {
-    @NotEmpty String name;
-    @Past LocalDate birthDay;
-    @SecurePassword String clearPassword;
+  @NotEmpty String name;
+  @Past LocalDate birthDay;
+  @SecurePassword String clearPassword;
 }

@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MongoConfig {
 
-    @Bean
-    public MongoClient mongoClient() {
-        return MongoClients.create("mongodb://admin:changeme@localhost:27017");
-    }
+  @Bean
+  public MongoClient mongoClient() {
+    return MongoClients.create("mongodb://admin:changeme@localhost:27017");
+  }
 }

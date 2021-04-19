@@ -2,9 +2,7 @@ package de.strasser.peter.hexagonal.application.customer.domain;
 
 import de.strasser.peter.hexagonal.application.customer.exception.TooOldToDeactivateExc;
 import de.strasser.peter.hexagonal.application.customer.exception.TooYoungExc;
-import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDate;
 import java.util.Collections;
@@ -12,7 +10,6 @@ import java.util.Collections;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
-
 
   @Test
   public void should_CreateNewCustomer() {
@@ -57,10 +54,8 @@ class CustomerTest {
   }
 
   @Test
-  public void should_ThrowTooOldErr_When_DeactivatingOldCustomer(){
+  public void should_ThrowTooOldErr_When_DeactivatingOldCustomer() {
     final Customer customer = Customer.newCustomer("name", "pw", LocalDate.of(1950, 1, 1));
     assertThrows(TooOldToDeactivateExc.class, customer::deactivate);
   }
-
-
 }

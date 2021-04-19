@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class AddAddressRequest {
-    String type;
-    String street;
-    Integer houseNumber;
-    Integer zipCode;
-    String country;
+  String type;
+  String street;
+  Integer houseNumber;
+  Integer zipCode;
+  String country;
 }

@@ -11,5 +11,4 @@ public interface CustomerWebMapper {
   CustomerResponse toResponse(Customer customer);
 
   List<CustomerResponse> toResponse(List<Customer> customer);
-
 }

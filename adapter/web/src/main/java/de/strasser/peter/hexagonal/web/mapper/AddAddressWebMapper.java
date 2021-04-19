@@ -6,5 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface AddAddressWebMapper {
-    AddAddressCommand toCmd(AddAddressRequest addAddressRequest);
+  AddAddressCommand toCmd(AddAddressRequest addAddressRequest);
 }

@@ -25,6 +25,7 @@
         <addressvalidation.version>0.0.1-SNAPSHOT</addressvalidation.version>
         <web.version>0.0.1-SNAPSHOT</web.version>
         <persistence.version>0.0.1-SNAPSHOT</persistence.version>
+        <archunit.version>0.18.0</archunit.version>
     </properties>
 
     <dependencyManagement>
@@ -76,6 +77,13 @@
                 <groupId>de.strasser.peter.hexagonal</groupId>
                 <artifactId>persistence</artifactId>
                 <version>${persistence.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.tngtech.archunit</groupId>
+                <artifactId>archunit</artifactId>
+                <version>${archunit.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

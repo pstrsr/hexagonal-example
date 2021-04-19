@@ -43,7 +43,8 @@ class RegisterCustomerControllerTest {
 
   @Test
   public void should_DenyRequest_When_SendingInvalidDateFormat() throws Exception {
-    final String body = ReadStringResources.readStringFromResource("invalid_date_register_customer.json");
+    final String body =
+        ReadStringResources.readStringFromResource("invalid_date_register_customer.json");
 
     mockMvc
         .perform(post("/v1/register").contentType(MediaType.APPLICATION_JSON).content(body))

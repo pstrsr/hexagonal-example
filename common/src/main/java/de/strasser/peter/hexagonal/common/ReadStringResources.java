@@ -1,4 +1,4 @@
-package de.strasser.peter.hexagonal.common.validators;
+package de.strasser.peter.hexagonal.common;
 
 import org.springframework.util.ResourceUtils;
 
