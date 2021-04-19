@@ -1,7 +1,7 @@
 package de.strasser.peter.hexagonal.persistence.mapper;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Address;
-import de.strasser.peter.hexagonal.application.customer.domain.Customer;
+import de.strasser.peter.hexagonal.application.domain.Address;
+import de.strasser.peter.hexagonal.application.domain.Customer;
 import de.strasser.peter.hexagonal.persistence.model.CustomerEntity;
 import org.mapstruct.Mapper;
 import org.springframework.core.convert.converter.Converter;

@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.web;
 
-import de.strasser.peter.hexagonal.application.customer.port.in.QueryAllCustomersCRUD;
+import de.strasser.peter.hexagonal.application.port.in.QueryAllCustomersCRUD;
 import de.strasser.peter.hexagonal.common.Adapter;
 import de.strasser.peter.hexagonal.web.dto.response.CustomerResponse;
 import de.strasser.peter.hexagonal.web.mapper.CustomerWebMapper;

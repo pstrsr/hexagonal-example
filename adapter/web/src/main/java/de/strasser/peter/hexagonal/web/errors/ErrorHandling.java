@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.web.errors;
 
-import de.strasser.peter.hexagonal.application.customer.exception.BusinessException;
+import de.strasser.peter.hexagonal.application.exception.BusinessException;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

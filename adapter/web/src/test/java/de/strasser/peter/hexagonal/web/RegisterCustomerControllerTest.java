@@ -1,8 +1,8 @@
 package de.strasser.peter.hexagonal.web;
 
-import de.strasser.peter.hexagonal.application.customer.port.in.RegisterCustomerUseCase;
-import de.strasser.peter.hexagonal.application.customer.port.in.commands.RegisterCustomerCommand;
-import de.strasser.peter.hexagonal.common.validators.ReadStringResources;
+import de.strasser.peter.hexagonal.application.port.in.RegisterCustomerUseCase;
+import de.strasser.peter.hexagonal.application.port.in.commands.RegisterCustomerCommand;
+import de.strasser.peter.hexagonal.common.ReadStringResources;
 import de.strasser.peter.hexagonal.web.mapper.RegisterCustomerWebMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

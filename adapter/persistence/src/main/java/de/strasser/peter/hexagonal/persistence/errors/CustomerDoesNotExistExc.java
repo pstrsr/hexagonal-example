@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.persistence.errors;
 
-import de.strasser.peter.hexagonal.application.customer.exception.BusinessException;
+import de.strasser.peter.hexagonal.application.exception.BusinessException;
 
 import java.math.BigInteger;
 

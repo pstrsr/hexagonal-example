@@ -1,8 +1,8 @@
 package de.strasser.peter.hexagonal.addressvalidation;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Address;
-import de.strasser.peter.hexagonal.application.customer.port.out.AddressValidatorPort;
-import de.strasser.peter.hexagonal.application.customer.port.out.commands.ValidateAddressCommand;
+import de.strasser.peter.hexagonal.application.domain.Address;
+import de.strasser.peter.hexagonal.application.port.out.AddressValidatorPort;
+import de.strasser.peter.hexagonal.application.port.out.commands.ValidateAddressCommand;
 import de.strasser.peter.hexagonal.common.Adapter;
 import lombok.extern.slf4j.Slf4j;
 

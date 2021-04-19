@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.web.mapper;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Customer;
+import de.strasser.peter.hexagonal.application.domain.Customer;
 import de.strasser.peter.hexagonal.web.dto.response.CustomerResponse;
 import org.mapstruct.Mapper;
 

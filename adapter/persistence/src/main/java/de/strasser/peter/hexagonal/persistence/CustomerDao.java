@@ -1,9 +1,9 @@
 package de.strasser.peter.hexagonal.persistence;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Customer;
-import de.strasser.peter.hexagonal.application.customer.port.in.QueryAllCustomersCRUD;
-import de.strasser.peter.hexagonal.application.customer.port.out.LoadCustomerPort;
-import de.strasser.peter.hexagonal.application.customer.port.out.SaveCustomerPort;
+import de.strasser.peter.hexagonal.application.domain.Customer;
+import de.strasser.peter.hexagonal.application.port.in.QueryAllCustomersCRUD;
+import de.strasser.peter.hexagonal.application.port.out.LoadCustomerPort;
+import de.strasser.peter.hexagonal.application.port.out.SaveCustomerPort;
 import de.strasser.peter.hexagonal.persistence.errors.CustomerDoesNotExistExc;
 import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapper;
 import de.strasser.peter.hexagonal.persistence.model.CustomerEntity;

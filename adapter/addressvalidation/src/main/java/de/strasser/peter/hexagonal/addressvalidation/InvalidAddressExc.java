@@ -1,7 +1,7 @@
 package de.strasser.peter.hexagonal.addressvalidation;
 
-import de.strasser.peter.hexagonal.application.customer.exception.BusinessException;
-import de.strasser.peter.hexagonal.application.customer.port.out.commands.ValidateAddressCommand;
+import de.strasser.peter.hexagonal.application.exception.BusinessException;
+import de.strasser.peter.hexagonal.application.port.out.commands.ValidateAddressCommand;
 
 public class InvalidAddressExc extends BusinessException {
   public InvalidAddressExc(ValidateAddressCommand validateAddressCommand) {

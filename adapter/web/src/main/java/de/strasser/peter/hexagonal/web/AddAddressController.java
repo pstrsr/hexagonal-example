@@ -1,7 +1,7 @@
 package de.strasser.peter.hexagonal.web;
 
-import de.strasser.peter.hexagonal.application.customer.port.in.AddAddressUseCase;
-import de.strasser.peter.hexagonal.application.customer.port.in.commands.AddAddressCommand;
+import de.strasser.peter.hexagonal.application.port.in.AddAddressUseCase;
+import de.strasser.peter.hexagonal.application.port.in.commands.AddAddressCommand;
 import de.strasser.peter.hexagonal.common.Adapter;
 import de.strasser.peter.hexagonal.web.dto.request.AddAddressRequest;
 import de.strasser.peter.hexagonal.web.mapper.AddAddressWebMapper;

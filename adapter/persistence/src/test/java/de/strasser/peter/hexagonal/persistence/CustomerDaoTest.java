@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.persistence;
 
-import de.strasser.peter.hexagonal.application.customer.domain.Customer;
+import de.strasser.peter.hexagonal.application.domain.Customer;
 import de.strasser.peter.hexagonal.persistence.mapper.CustomerMapperImpl;
 import de.strasser.peter.hexagonal.persistence.repository.CustomerRepository;
 import org.junit.jupiter.api.AfterEach;

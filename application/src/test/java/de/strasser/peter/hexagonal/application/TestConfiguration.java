@@ -1,6 +1,6 @@
 package de.strasser.peter.hexagonal.application;
 
-import de.strasser.peter.hexagonal.application.customer.mapper.AddAddressMapper;
+import de.strasser.peter.hexagonal.application.mapper.AddAddressMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.mock.mockito.SpyBean;
