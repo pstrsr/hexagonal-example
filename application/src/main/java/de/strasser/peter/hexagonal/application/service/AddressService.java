@@ -3,7 +3,6 @@ package de.strasser.peter.hexagonal.application.service;
 import de.strasser.peter.hexagonal.application.domain.Address;
 import de.strasser.peter.hexagonal.application.domain.Customer;
 import de.strasser.peter.hexagonal.application.mapper.AddAddressMapper;
-import de.strasser.peter.hexagonal.application.mapper.Test;
 import de.strasser.peter.hexagonal.application.port.in.AddAddressUseCase;
 import de.strasser.peter.hexagonal.application.port.in.commands.AddAddressCommand;
 import de.strasser.peter.hexagonal.application.port.out.AddressValidatorPort;
@@ -39,7 +38,6 @@ class AddressService implements AddAddressUseCase {
     addAddressCmds.forEach(addAddressCommand -> validateAndAddToMap(addresses, addAddressCommand));
 
     customer.addAddresses(addresses);
-    new Test("he");
     saveCustomerAdapter.upsert(customer);
   }
 
