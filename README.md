@@ -12,7 +12,7 @@ Most of the information on how to design in this way are from the following book
 
 ### Prerequisites
 
-* Java 11
+* Java 16
 * Maven
 * Docker or mongoDB
 

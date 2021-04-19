@@ -21,12 +21,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface SecurePassword {
 
   String message() default
-      "# a digit must occur at least once\n"
-          + "# a lower case letter must occur at least once\n"
-          + "# an upper case letter must occur at least once\n"
-          + "# a special character must occur at least once ( one of !@#$%^&*(),.?\":{}|<>) \n"
-          + "# no whitespace allowed in the entire string\n"
-          + "# anything, at least eight places though";
+          """
+                  # a digit must occur at least once
+                  # a lower case letter must occur at least once
+                  # an upper case letter must occur at least once
+                  # a special character must occur at least once ( one of !@#$%^&*(),.?":{}|<>)\s
+                  # no whitespace allowed in the entire string
+                  # at least eight places""";
 
   Class<?>[] groups() default {};
 

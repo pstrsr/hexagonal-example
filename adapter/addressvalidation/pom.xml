@@ -14,7 +14,7 @@
     <description>Adapter to call validate addresses in external systems</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>16</java.version>
     </properties>
 
     <dependencies>
