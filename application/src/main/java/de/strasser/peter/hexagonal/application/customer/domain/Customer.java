@@ -17,7 +17,7 @@ import java.util.Map;
 @ToString
 public class Customer {
   private final BigInteger id;
-  private String name;
+  private final String name;
   private final String hashedPassword;
   private final LocalDate birthday;
   private final int age;

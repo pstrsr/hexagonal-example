@@ -18,18 +18,18 @@ Most of the information on how to design in this way are from the following book
 
 ### How to run
 
-To run this application you need to first run a
+To run this application run:
 
 ```cmd
 mvn clean install
 ```
 
-in the root directory of this project. This will download all required dependencies and bundle your
+in the root directory of this project. This will download all required dependencies and bundle the
 project properly. It will also auto generate some mapping classes with
 the [mapstruct](https://mapstruct.org/) plugin.
 
-The database for this application is a mongo db. You either need to have one running on your system,
-or you can alternatively start the MongoDB in docker with the included docker-compose file.
+The database for this application is a mongo db. We either need to have one running on our system,
+or we can alternatively start the MongoDB in docker with the included docker-compose file.
 
 ```cmd
 docker-compose -f mongodb-docker-compose up
@@ -48,7 +48,7 @@ customers.
 
 The supported use cases in the business layer can be inspected in the application module. Under
 application/src/main/java/de/strasser/peter/hexagonal/application/customer/port all the supported
-operations are clearly visible, which is a major selling point to structure your application in this
+operations are clearly visible, which is a major selling point to structure our application in this
 way.
 
 ![img_1.png](documentation/ports.png)
@@ -140,7 +140,7 @@ more readable and maintainable.
 ### Advantages of the domain models in the center of the code
 
 With the domain models being free of any framework specific annotations this is especially great for
-unit testing your business logic. No spring context, that has to boot, no proxy classes, or any
+unit testing our business logic. No spring context, that has to boot, no proxy classes, or any
 services that need to be mocked.
 
 Just plain old Java, which is easy to understand and fast to execute.
@@ -152,9 +152,9 @@ the [Single Responsibility Principle](https://en.wikipedia.org/wiki/SOLID). Each
 the thing it is supposed to do. The web adapter for example only handles incoming web requests and
 nothing else.
 
-The clear separation of concerns also greatly increases flexibility. If you wanted to switch from an
-SQL to NoSQL DB, you'd just have to rewrite your Persistence Adapter, but the rest of the
-application should not be affected by your change.
+The clear separation of concerns also greatly increases flexibility. If we wanted to switch from an
+SQL to NoSQL DB, we'd just have to rewrite our Persistence Adapter, but the rest of the application
+should not be affected by our change.
 
 ### Advantages of the ports
 
@@ -193,12 +193,29 @@ for us anyway.
 
 ![img.png](documentation/add-address-commands.png)
 
-So once we have that ValidateAddressCommand we pass that into the ValidateAddressPort, which behind
+Once we have that ValidateAddressCommand we pass that into the ValidateAddressPort, which behind
 some abstraction that we don't know about in our application module does some validation magic. We
 then get a perfectly valid address model back from this adapter, which we can then use in our
 UseCase / Domain logic.
 
 ![img.png](documentation/valid-address-port.png)
+
+### Advantages of separating the service into different modules
+
+So how to we enforce that developers follow these rules? A new member of the team may think it's
+sufficient to directly call the repository interface in the web adapter for a simple crud case. This
+might actually even not be that bad. Once a breach of the rules for this architecture is made, it
+invites others to also take their own shortcuts.
+
+By dividing the application into different modules, we can control which part of the application can
+access what.
+
+The adapters depend on the application logic, which itself does only depend on the common module.
+The common module contains cross-cutting concerns. We should be *very* careful, what this module
+contains. It should contain the absolute minimum of code, as all other modules depend on it.
+
+As we can see with a structure module structured like this, the application module represents the
+core of the service. No external factors like the type of our DB affect our business logic.
 
 ### Disadvantages of this architecture
 
