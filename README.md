@@ -18,7 +18,7 @@ Most of the information on how to design in this way are from the following book
 
 ### How to run
 
-To run this application run:
+To run this application execute:
 
 ```cmd
 mvn clean install
