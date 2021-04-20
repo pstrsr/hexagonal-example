@@ -20,9 +20,9 @@ class RegisterCustomerService implements RegisterCustomerUseCase {
 
   @Override
   public void register(@Valid RegisterCustomerCommand registerCmd) {
-    var encryptedPw = this.superSecureHashingAlgorithm(registerCmd.getClearPassword());
+    var encryptedPw = this.superSecureHashingAlgorithm(registerCmd.clearPassword());
     var newCustomer =
-        Customer.newCustomer(registerCmd.getName(), encryptedPw, registerCmd.getBirthDay());
+        Customer.newCustomer(registerCmd.name(), encryptedPw, registerCmd.birthDay());
 
     saveUser.upsert(newCustomer);
   }

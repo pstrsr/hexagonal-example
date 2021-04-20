@@ -23,17 +23,17 @@ public class CustomerEntity {
   private boolean active;
 
   private String street;
-  private Integer houseNumber;
+  private String city;
   private Integer zipCode;
   private String country;
 
   private String shippingStreet;
-  private Integer shippingHouseNumber;
+  private String shippingCity;
   private Integer shippingZipCode;
   private String shippingCountry;
 
   private String billingStreet;
-  private Integer billingHouseNumber;
+  private String billingCity;
   private Integer billingZipCode;
   private String billingCountry;
 

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class AddAddressRequest {
   String type;
   String street;
-  Integer houseNumber;
+  String city;
   Integer zipCode;
   String country;
 }

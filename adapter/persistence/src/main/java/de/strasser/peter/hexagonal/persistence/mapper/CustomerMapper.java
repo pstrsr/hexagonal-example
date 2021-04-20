@@ -33,15 +33,15 @@ public interface CustomerMapper {
         customer.getBirthday(),
         customer.isActive(),
         getAddressAttribute(customer, Address.AddressType.DEFAULT, Address::getStreet),
-        getAddressAttribute(customer, Address.AddressType.DEFAULT, Address::getHouseNumber),
+        getAddressAttribute(customer, Address.AddressType.DEFAULT, Address::getCity),
         getAddressAttribute(customer, Address.AddressType.DEFAULT, Address::getZipCode),
         getAddressAttribute(customer, Address.AddressType.DEFAULT, Address::getCountry),
         getAddressAttribute(customer, Address.AddressType.SHIPPING, Address::getStreet),
-        getAddressAttribute(customer, Address.AddressType.SHIPPING, Address::getHouseNumber),
+        getAddressAttribute(customer, Address.AddressType.SHIPPING, Address::getCity),
         getAddressAttribute(customer, Address.AddressType.SHIPPING, Address::getZipCode),
         getAddressAttribute(customer, Address.AddressType.SHIPPING, Address::getCountry),
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getStreet),
-        getAddressAttribute(customer, Address.AddressType.BILLING, Address::getHouseNumber),
+        getAddressAttribute(customer, Address.AddressType.BILLING, Address::getCity),
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getZipCode),
         getAddressAttribute(customer, Address.AddressType.BILLING, Address::getCountry),
         null);
@@ -66,16 +66,16 @@ public interface CustomerMapper {
           Address.AddressType.DEFAULT,
           new Address(
               customerEntity.getStreet(),
-              customerEntity.getHouseNumber(),
+              customerEntity.getCity(),
               customerEntity.getZipCode(),
               customerEntity.getCountry()));
     }
-    if (customerEntity.getBillingStreet() != null) {
+    if (customerEntity.getShippingStreet() != null) {
       addresses.put(
           Address.AddressType.SHIPPING,
           new Address(
               customerEntity.getShippingStreet(),
-              customerEntity.getShippingHouseNumber(),
+              customerEntity.getShippingCity(),
               customerEntity.getShippingZipCode(),
               customerEntity.getShippingCountry()));
     }
@@ -84,7 +84,7 @@ public interface CustomerMapper {
           Address.AddressType.BILLING,
           new Address(
               customerEntity.getBillingStreet(),
-              customerEntity.getBillingHouseNumber(),
+              customerEntity.getBillingCity(),
               customerEntity.getBillingZipCode(),
               customerEntity.getBillingCountry()));
     }

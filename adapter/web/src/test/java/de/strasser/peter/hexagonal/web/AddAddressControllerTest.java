@@ -42,7 +42,7 @@ class AddAddressControllerTest {
         .andExpect(status().isOk())
         .andReturn();
 
-    var addAddressCmd = new AddAddressCommand("default", "street", 59, 85748, "Germany");
+    var addAddressCmd = new AddAddressCommand("default", "street", "Garching", 85748, "Germany");
 
     then(addAddressUseCase)
         .should()

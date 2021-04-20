@@ -7,10 +7,10 @@ public class InvalidAddressExc extends BusinessException {
   public InvalidAddressExc(ValidateAddressCommand validateAddressCommand) {
     super(
         String.format(
-            "Address <%s, %d, %d, %s> does not exist",
-            validateAddressCommand.getStreet(),
-            validateAddressCommand.getHouseNumber(),
-            validateAddressCommand.getZipCode(),
-            validateAddressCommand.getCountry()));
+            "Address <%s, %s, %d, %s> does not exist",
+            validateAddressCommand.street(),
+            validateAddressCommand.city(),
+            validateAddressCommand.zipCode(),
+            validateAddressCommand.country()));
   }
 }

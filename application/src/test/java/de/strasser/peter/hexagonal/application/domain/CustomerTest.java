@@ -28,7 +28,7 @@ class CustomerTest {
   @Test
   public void should_ActivateCustomer_When_AddingDefaultAddress() {
     final Customer customer = Customer.newCustomer("name", "pw", LocalDate.of(1980, 1, 1));
-    final Address address = new Address("Parkring", 59, 85748, "Germany");
+    final Address address = new Address("Parkring", "Garching", 85748, "Germany");
 
     customer.addAddresses(Collections.singletonMap(Address.AddressType.DEFAULT, address));
 
@@ -38,7 +38,7 @@ class CustomerTest {
   @Test
   public void should_NotActivateCustomer_When_AddingBillingAddress() {
     final Customer customer = Customer.newCustomer("name", "pw", LocalDate.of(1980, 1, 1));
-    final Address address = new Address("Parkring", 59, 85748, "Germany");
+    final Address address = new Address("Parkring", "Garching", 85748, "Germany");
 
     customer.addAddresses(Collections.singletonMap(Address.AddressType.BILLING, address));
 

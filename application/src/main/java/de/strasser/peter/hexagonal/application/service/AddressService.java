@@ -10,6 +10,7 @@ import de.strasser.peter.hexagonal.application.port.out.LoadCustomerPort;
 import de.strasser.peter.hexagonal.application.port.out.SaveCustomerPort;
 import de.strasser.peter.hexagonal.common.UseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 @UseCase
+@Validated
 @Transactional
 @RequiredArgsConstructor
 class AddressService implements AddAddressUseCase {
@@ -43,7 +45,7 @@ class AddressService implements AddAddressUseCase {
 
   private void validateAndAddToMap(
       Map<Address.AddressType, Address> addresses, AddAddressCommand addAddressCommand) {
-    final var addressType = Address.AddressType.fromString(addAddressCommand.getType());
+    final var addressType = Address.AddressType.fromString(addAddressCommand.type());
     final var validateAddressCmd = addAddressMapper.toOutCmd(addAddressCommand);
     final var validatedAddress = addressValidatorAdapter.validate(validateAddressCmd);
 

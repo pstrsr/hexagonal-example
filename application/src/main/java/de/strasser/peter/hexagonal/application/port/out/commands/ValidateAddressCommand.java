@@ -1,15 +1,11 @@
 package de.strasser.peter.hexagonal.application.port.out.commands;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor(force = true)
-public class ValidateAddressCommand {
-  String street;
-  Integer houseNumber;
-  Integer zipCode;
-  String country;
-}
+
+
+public record ValidateAddressCommand (
+  String street,
+  String city,
+  Integer zipCode,
+  String country
+){}
