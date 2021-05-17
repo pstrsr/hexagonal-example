@@ -26,6 +26,7 @@
         <web.version>0.0.1-SNAPSHOT</web.version>
         <persistence.version>0.0.1-SNAPSHOT</persistence.version>
         <archunit.version>0.18.0</archunit.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -96,4 +97,20 @@
         <module>application</module>
         <module>common</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*IT.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

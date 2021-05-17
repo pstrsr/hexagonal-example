@@ -2,6 +2,7 @@
   "type": "default",
   "street": "street",
   "houseNumber": 59,
+  "city": "Garching",
   "zipCode": 85748,
   "country": "Germany"
 }
